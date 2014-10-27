@@ -5,7 +5,9 @@
 % will be executed.
 %
 % When we do not find a match in the clauses, we assign variable `Other`
-% the value of the paramater, and return an error tuple
+% the value of the paramater, and return an error tuple, which has as it's
+% element 1: error atom, describing what we give back
+% element 2: description atom, giving a description of why we got an error back
 
 
 -module(area).
