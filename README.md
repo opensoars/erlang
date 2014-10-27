@@ -5,4 +5,4 @@ Learning me some Erlang!
 
 ---
 
-Content coming (really) soon!
+So far you can browse (basics)[https://github.com/opensoars/erlang/tree/master/basics].
