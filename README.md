@@ -11,3 +11,8 @@ So far you can browse [basics](https://github.com/opensoars/erlang/tree/master/b
 ### Goal
 Master the Erlang programming language.
 
+### Application goals
+* IM server
+* Node.js communication
+* Control Node.js application
+* And much more..
