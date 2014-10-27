@@ -17,5 +17,5 @@ Why? To gain more knowledge and to be able to add Erlang to my toolset.
 ### Application goals
 * IM server
 * Node.js communication
-* Control Node.js application
+* Erlang controlled Node.js application
 * And much more..
