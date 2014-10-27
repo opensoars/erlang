@@ -1,5 +1,16 @@
+% Simple demonstration of pattern matching,
+%
+% when we call `area:calc({square, 5}).`
+% It will match the first function clause, so the matching body
+% will be executed.
+%
+% When we do not find a match in the clauses, we assign variable `Other`
+% the value of the paramater, and return an error tuple
+
+
 -module(area).
 -export([calc/1]).
+
 
 % calc: calculates area of shapes
 
