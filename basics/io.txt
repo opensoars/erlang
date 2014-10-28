@@ -1,12 +1,14 @@
+% 1> Read line for standard input
+% 2> Read specified number of characters
+% 3> Read an Erlang term
+
 1> io:get_line("gissa line>").
 gissa line>lkdsjfljasdkjflkajsdf.
 "lkdsjfljasdkjflkajsdf.\n"
 
-
 2> io:get_chars("tell me> ",2).
 tell me> er
 "er"
-
 
 3> io:read("ok, then>>").
 ok, then>>atom.
