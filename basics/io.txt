@@ -1,0 +1,19 @@
+1> io:get_line("gissa line>").
+gissa line>lkdsjfljasdkjflkajsdf.
+"lkdsjfljasdkjflkajsdf.\n"
+
+
+2> io:get_chars("tell me> ",2).
+tell me> er
+"er"
+
+
+3> io:read("ok, then>>").
+ok, then>>atom.
+{ok,atom}
+4> io:read("ok, then>>").
+ok, then>>{2,tue,{mon,"weds"}}.
+{ok,{2,tue,{mon,"weds"}}}
+5> io:read("ok, then>>").
+ok, then>>2+3.
+{error,{1,erl_parse,"bad term"}}
