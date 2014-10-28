@@ -19,3 +19,7 @@ ok, then>>{2,tue,{mon,"weds"}}.
 5> io:read("ok, then>>").
 ok, then>>2+3.
 {error,{1,erl_parse,"bad term"}}
+
+
+io:format("the sum of ~w is ~w.~n", [List,Sum]).
+the sum of [2,3,3.141592653589793] is 8.141592653589793.
