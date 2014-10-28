@@ -23,3 +23,8 @@ ok, then>>2+3.
 
 io:format("the sum of ~w is ~w.~n", [List,Sum]).
 the sum of [2,3,3.141592653589793] is 8.141592653589793.
+
+
+io:format("the sum of ~W is ~f.~n", [List,3,Sum]).
+the sum of [2,3|...] is 8.141593.
+
