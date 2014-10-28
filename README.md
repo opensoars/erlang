@@ -19,4 +19,5 @@ To gain more knowledge and to be able to add Erlang to my toolset.
 * IM server
 * Node.js communication
 * Erlang controlled Node.js application
+* RESTful JSON API
 * And much more..
