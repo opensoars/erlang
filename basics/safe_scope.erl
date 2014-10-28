@@ -9,4 +9,11 @@ safe(X) ->
     one -> Y = 12;
     _   -> Y = 15
   end,
-  Y.
+  X+Y.
+
+preferred(X) ->
+  Y = case X of
+      one -> 12;
+      _   -> 15
+      end,
+  X+Y.
