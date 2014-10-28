@@ -1,6 +1,9 @@
 % 1> Read line for standard input
 % 2> Read specified number of characters
 % 3> Read an Erlang term
+% 4> Read an Erlang term, return a tuple in the returned tuple
+% 5> Pretty print
+% 6> We cannot read an arbitary Erlang expression
 
 1> io:get_line("gissa line>").
 gissa line>lkdsjfljasdkjflkajsdf.
@@ -13,12 +16,22 @@ tell me> er
 3> io:read("ok, then>>").
 ok, then>>atom.
 {ok,atom}
+
 4> io:read("ok, then>>").
 ok, then>>{2,tue,{mon,"weds"}}.
 {ok,{2,tue,{mon,"weds"}}}
-5> io:read("ok, then>>").
+
+5> io:format("~40p~n", [{apply, io, format, ["the sum of ~W is ~.2f.~n", [[2,3,math:pi()],3,lists:sum([2,3,math:pi()])]]}]).
+{apply,io,format,
+    ["the sum of ~W is ~.2f.~n",
+     [[2,3,3.141592653589793],
+      3,8.141592653589793]]}
+
+6> io:read("ok, then>>").
 ok, then>>2+3.
 {error,{1,erl_parse,"bad term"}}
+
+
 
 
 io:format("the sum of ~w is ~w.~n", [List,Sum]).
@@ -27,4 +40,5 @@ the sum of [2,3,3.141592653589793] is 8.141592653589793.
 
 io:format("the sum of ~W is ~f.~n", [List,3,Sum]).
 the sum of [2,3|...] is 8.141593.
+
 
