@@ -1,6 +1,9 @@
 -module(bool).
 -export([b_not/1, b_and/2, b_or/2, b_nand/2]).
 
+% Simple boolean expression matching
+% not, and, or, nand
+
 b_not(true) ->
   false;
 b_not(false) ->
