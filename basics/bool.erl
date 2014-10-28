@@ -8,17 +8,17 @@ b_not(false) ->
 
 b_and(true, true) ->
   true;
-b_and(_NotTrueValue1, _NotTrueValue2) ->
+b_and(_NotTrueParam1, _NotTrueParam2) ->
   false.
 
-b_or(_Value1, true) ->
+b_or(_Param1, true) ->
   true;
-b_or(true, _Value2) ->
+b_or(true, _Param2) ->
   true;
-b_or(_NotTrueValue1, _NotTrueValue2) ->
+b_or(_NotTrueParam1, _NotTrueParam2) ->
   false.
 
 b_nand(false, false) ->
   true;
-b_nand(_NotFalseValue1, _NotFalseValue2) ->
+b_nand(_NotFalseParam1, _NotFalseParam2) ->
   false.

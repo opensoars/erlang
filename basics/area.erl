@@ -1,6 +1,6 @@
 % Simple demonstration of pattern matching,
 %
-% when we call `area:calc({square, 5}).`
+% when we call `area:shape({square, 5}).`
 % It will match the first function clause, so the matching body
 % will be executed.
 %
@@ -11,20 +11,20 @@
 
 
 -module(area).
--export([calc/1]).
+-export([shape/1]).
 
 
-% calc: calculates area of shapes
+% shape: calculates area of shapes
 
-calc({square, Side}) ->
+shape({square, Side}) ->
   Side * Side;
 
-calc({circle, Radius}) ->
+shape({circle, Radius}) ->
   math:pi() * Radius * Radius;
 
-calc({triangle, A, B, C}) ->
+shape({triangle, A, B, C}) ->
   S = (A + B + C)/2,
   math:sqrt(S*(S-A)*(S-B)*(S-C));
 
-calc(Other) ->
+shape(_Other) ->
   {error, invalid_object}.
