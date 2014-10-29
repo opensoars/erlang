@@ -6,8 +6,6 @@
 bump([]) -> [];
 bump([Head | Tail]) -> [Head + 1 | bump(Tail)].
 
-% Returns the length of a list
-len([]) -> 0.
 
 % Returns the average of integer elements in a list
 average(List) -> sum(List) / len(List).
@@ -15,6 +13,11 @@ average(List) -> sum(List) / len(List).
 % Returns value of adding every integer element in a list
 sum([]) -> 0;
 sum([Head | Tail]) -> Head + sum(Tail).
+
+% Returns the length of a list
+len([]) -> 0;
+len([_Head | Tail]) -> 1 + len(Tail).
+
 
 % Return true if integer parameter is even false if it's not
 even([]) -> 0.
