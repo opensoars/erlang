@@ -29,3 +29,5 @@ even([_ | T]) -> even(T).
 % Return true if element (param1) is found in the list (param2)
 % else we return false
 member(_, []) -> false;
+member(H, [H | _]) -> true;
+member(H, [_ | T]) -> member(H, T).
