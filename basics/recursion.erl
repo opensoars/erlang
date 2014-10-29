@@ -10,10 +10,11 @@ bump([Head | Tail]) -> [Head + 1 | bump(Tail)].
 len([]) -> 0.
 
 % Returns the average of integer elements in a list
-average([]) -> 0.
+average(List) -> sum(List) / len(List).
 
 % Returns value of adding every integer element in a list
-sum([]) -> 0.
+sum([]) -> 0;
+sum([Head | Tail]) -> Head + sum(Tail).
 
 % Return true if integer parameter is even false if it's not
 even([]) -> 0.
