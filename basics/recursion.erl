@@ -1,5 +1,10 @@
+%
+% Direct recursion
+%
+
 -module(recursion).
 -export([bump/1, len/1, average/1, sum/1, even/1, member/2]).
+
 
 % Adds 1 to every element in the list
 % Returns the new list
