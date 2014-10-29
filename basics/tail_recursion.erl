@@ -6,14 +6,27 @@
 %
 
 -module(tail_recursion).
--export([sum/2, bump/2]).
+-export([sum/1, bump/1, reverse/1]).
+
+% Returns value of adding every integer element in a list
+sum(List) -> sum_acc(List, 0).
+
+% sum, using an accumulating parameter
+sum_acc([], Acc) -> Acc;
+sum_acc([H | T], Acc) -> sum_acc(T, H + Acc).
 
 
-% sum, using an accumulating parameter (Sum)
-sum([], Sum) -> Sum;
-sum([H | T], Sum) -> sum(T, H + Sum).
+% Adds 1 to every element in the list
+bump(List) -> bump_acc(List, []).
+
+% bump, using an accumulating parameter
+bump_acc([], Acc) -> reverse(Acc);
+bump_acc([H | T], Acc) -> bump_acc(T, [H + 1 | Acc]).
 
 
-% bump, using an accumulating parameter (List)
-bump([], List) -> List;
-bump([H | T], List) -> bump(T, [H + 1 | Acc]).
+% Reverses a list
+reverse(List) -> reverse_acc(List, []).
+
+% reverse, using an accumulating parameter
+reverse_acc([], Acc) -> Acc;
+reverse_acc([H | T], Acc) -> reverse_acc(T, [H | Acc]).
