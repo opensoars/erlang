@@ -4,7 +4,7 @@
 % Adds 1 to every element in the list
 % Returns the new list
 bump([]) -> [];
-bump([Head | Tail]) -> [Head + 1 | bump(Tail)].
+bump([H | T]) -> [H + 1 | bump(T)].
 
 
 % Returns the average of integer elements in a list
@@ -13,17 +13,17 @@ average(List) -> sum(List) / len(List).
 
 % Returns value of adding every integer element in a list
 sum([]) -> 0;
-sum([Head | Tail]) -> Head + sum(Tail).
+sum([H | T]) -> H + sum(T).
 
 % Returns the length of a list
 len([]) -> 0;
-len([_Head | Tail]) -> 1 + len(Tail).
+len([_H | T]) -> 1 + len(T).
 
 
-% Returns a list with only even numbers
+% Returns a list with just even numbers
 even([]) -> [];
-even([Head | Tail]) when Head rem 2 == 0 -> [Head | even(Tail)];
-even([_ | Tail]) -> even(Tail).
+even([H | T]) when H rem 2 == 0 -> [H | even(T)];
+even([_ | T]) -> even(T).
 
 
 % Return true if element (param1) is found in the list (param2)
