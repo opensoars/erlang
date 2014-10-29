@@ -20,8 +20,12 @@ len([]) -> 0;
 len([_Head | Tail]) -> 1 + len(Tail).
 
 
-% Return true if integer parameter is even false if it's not
-even([]) -> 0.
+% Returns a list with only even numbers
+even([]) -> [];
+even([Head | Tail]) when Head rem 2 == 0 -> [Head | even(Tail)];
+even([_ | Tail]) -> even(Tail).
+
 
 % Return true if element (param1) is found in the list (param2)
-member([], []) -> 0.
+% else we return false
+member(_, []) -> false;
