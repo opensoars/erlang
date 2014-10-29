@@ -3,19 +3,20 @@
 
 % Adds 1 to every element in the list
 % Returns the new list
-bump()
+bump([]) -> [];
+bump([Head | Tail]) -> [Head + 1 | bump(Tail)].
 
 % Returns the length of a list
-len()
+len([]) -> 0.
 
 % Returns the average of integer elements in a list
-average()
+average([]) -> 0.
 
 % Returns value of adding every integer element in a list
-sum()
+sum([]) -> 0.
 
 % Return true if integer parameter is even false if it's not
-even()
+even([]) -> 0.
 
 % Return true if element (param1) is found in the list (param2)
-member()
+member([], []) -> 0.
