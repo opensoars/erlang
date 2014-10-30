@@ -10,7 +10,7 @@
 % Returns the new list
 bump([]) -> [];
 bump([H | T]) -> [H + 1 | bump(T)].
- 3
+
 
 % Returns the average of integer elements in a list
 average([]) -> 0;
