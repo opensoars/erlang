@@ -1,5 +1,23 @@
+%%%--------------------------------------------------------------------- 
+%%% Description module ex3_2
+%%%--------------------------------------------------------------------- 
+%%% Creates lists from passed in parameters.
+%%% For example:
+%%%   ex3_2:create(5).
+%%%   [1,2,3,4,5]
+%%%--------------------------------------------------------------------- 
+%%% Exports
+%%%--------------------------------------------------------------------- 
+%%% create(N)
+%%%   returns a list filled with integers from 1 to N
+%%% reverse_create(N)
+%%%   returns a list filled with integers from N to 1
+%%%--------------------------------------------------------------------- 
+
+
 -module(ex3_2).
 -export([create/1, reverse_create/1]).
+
 
 %%----------------------------------------------------------------------
 %% Creates a list from 1 to param N
@@ -11,7 +29,6 @@ create_acc(Index, Final, List) when Final =< Index ->
   create_acc(Index -1, Final, [Index | List]);
 create_acc(_End, _Index, List) ->
   List.
-
 
 
 %%----------------------------------------------------------------------
