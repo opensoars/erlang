@@ -3,7 +3,7 @@
 %
 
 -module(tail_opt).
--export([]).
+-export([average/1]).
 
 
 % Returns the average value of a list, by calling the accumulator function
