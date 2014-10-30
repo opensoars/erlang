@@ -46,3 +46,5 @@ mergeR(Xs, [Y|Ys], Zs) ->
 mergeR([], [], Zs) ->
   Zs.
 
+
+

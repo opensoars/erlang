@@ -1,10 +1,13 @@
 %
 % Tail recursion optimization
 % Showing how to use eunit tests
+% To run the tests: average:test().
 %
 
 -module(tail_opt).
--export([average/1, sum/1]).
+-export([average/1]).
+-include_lib("eunit/include/eunit.hrl").
+
 
 % Returns the average value of a list, by calling the accumulator function
 % that takes as parameters: List, Sum, Length
@@ -16,11 +19,5 @@ average_acc([], Sum, Length) ->
 average_acc([H | T], Sum, Length) ->
   average_acc(T, Sum + H, Length + 1).
 
-
-% sum(3) will result in: 1 + 2 + 3 = 6
-sum(Boundary) -> sum_acc(1, Boundary, 0).
-
-sum_acc(Index, Boundary, Sum) when Index =< Boundary ->
-  sum_acc(Index + 1, Boundary, Sum + Index);
-sum_acc(_I, _B, Sum) ->
-  Sum.
+% Exported test function
+average_test() -> 2.0 = average([1,2,3]).
