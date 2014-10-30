@@ -6,7 +6,7 @@
 %
 
 -module(tail_recursion).
--export([sum/1, bump/1, reverse/1]).
+-export([sum/1, bump/1, reverse/1, merge/2]).
 
 % Returns value of adding every integer element in a list
 sum(List) -> sum_acc(List, 0).
@@ -30,3 +30,19 @@ reverse(List) -> reverse_acc(List, []).
 % reverse, using an accumulating parameter
 reverse_acc([], Acc) -> Acc;
 reverse_acc([H | T], Acc) -> reverse_acc(T, [H | Acc]).
+
+
+% Merges two lists of the same length
+merge(Xs, Ys) ->
+  lists:reverse(mergeL(Xs, Ys, [])).
+
+mergeL([X|Xs], Ys, Zs) ->
+  mergeR(Xs, Ys, [X|Zs]);
+mergeL([], [], Zs) ->
+  Zs.
+
+mergeR(Xs, [Y|Ys], Zs) ->
+  mergeL(Xs, Ys, [Y|Zs]);
+mergeR([], [], Zs) ->
+  Zs.
+
