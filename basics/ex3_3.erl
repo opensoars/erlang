@@ -16,6 +16,7 @@
 -export([printInts/1, printEvenInts/1]).
 
 %%----------------------------------------------------------------------
+%% API function printInts, calls printInts_acc(I, Final)
 %% Prints integers from 1 to N
 %% ex3_3:printInts(3).
 %% Number:1
@@ -33,13 +34,13 @@ printInts_acc(_Iterator, _Final) ->
 
 
 %%----------------------------------------------------------------------
+%% API function printEvenInts, calls printEvenInts_acc(I, Final)
 %% Prints even integers from 1 to N
 %% ex3_3:printEvenInts(5).
 %% Number:2
 %% Number:4
 %%----------------------------------------------------------------------
 printEvenInts(N) -> printEvenInts_acc(1, N).
-
 
 printEvenInts_acc(I, Final) when I =< Final, I rem 2 /= 0 ->
   printEvenInts_acc(I + 1, Final);
