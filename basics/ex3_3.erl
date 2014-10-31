@@ -18,7 +18,7 @@
 %%----------------------------------------------------------------------
 %% API function printInts, calls printInts_acc(I, N)
 %% Prints integers from 1 to param N
-%% ex3_3:printInts(3).
+%% printInts(3).
 %% Number:1
 %% Number:2
 %% Number:3
@@ -35,7 +35,7 @@ printInts_acc(_Iterator, _Final) -> ok.
 %%----------------------------------------------------------------------
 %% API function printEvenInts, calls printEvenInts_acc(I, N)
 %% Prints even integers from 1 to param N
-%% ex3_3:printEvenInts(5).
+%% printEvenInts(5).
 %% Number:2
 %% Number:4
 %% ok
