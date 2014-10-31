@@ -1,7 +1,7 @@
 %%%--------------------------------------------------------------------- 
 %%% Description module ex3_3
 %%%--------------------------------------------------------------------- 
-%%% Prints integers
+%%% Prints integers using the io:format BIF
 %%%
 %%%--------------------------------------------------------------------- 
 %%% Exports
@@ -11,9 +11,9 @@
 %%% printEvenInts(N)
 %%%   Prints even integers from 1 to N
 %%%--------------------------------------------------------------------- 
-
 -module(ex3_3).
 -export([printInts/1, printEvenInts/1]).
+
 
 %%----------------------------------------------------------------------
 %% API function printInts, calls printInts_acc(I, N)
@@ -39,6 +39,7 @@ printInts_acc(_Iterator, _Final) ->
 %% ex3_3:printEvenInts(5).
 %% Number:2
 %% Number:4
+%% ok
 %%----------------------------------------------------------------------
 printEvenInts(N) -> printEvenInts_acc(1, N).
 
