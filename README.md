@@ -8,6 +8,7 @@ Learning me some Erlang!
 ### Content
 So far you can browse:
 * [basics](https://github.com/opensoars/erlang/tree/master/basics)
+* [exercises](https://github.com/opensoars/erlang/tree/master/exercises)
 
 
 ### Goal
