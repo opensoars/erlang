@@ -20,11 +20,9 @@ sum1_acc(_Index, _Boundary, Sum) -> Sum.
 %%----------------------------------------------------------------------
 sum2(Index, Boundary) when Index > Boundary ->
   throw({ error, {"Index > Boundary", Index, Boundary} });
-sum2(Index, Boundary) ->
-  sum2_acc(Index, Boundary, 0).
+sum2(Index, Boundary) -> sum2_acc(Index, Boundary, 0).
 
 sum2_acc(Index, Boundary, Sum) when Index =< Boundary ->
   sum2_acc(Index + 1, Boundary, Sum + Index);
-sum2_acc(_Index, _Boundary, Sum) ->
-  Sum.
+sum2_acc(_Index, _Boundary, Sum) -> Sum.
 
