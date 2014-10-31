@@ -28,10 +28,11 @@ filter_acc([H | T], WantLen, CurLen, New) ->
 %% API function reverse
 %%----------------------------------------------------------------------
 reverse(L) ->
-  reverse_acc(L, 0, []).
+  reverse_acc(L, []).
 
-reverse_acc([], _I, New) -> New;
-reverse_acc([H | T], I, New) ->
+reverse_acc([], New) -> New;
+reverse_acc([H | T], New) ->
+  reverse_acc(T, [H | New]).
   
 
 % ?
