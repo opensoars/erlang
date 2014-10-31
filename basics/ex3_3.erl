@@ -14,11 +14,12 @@
 -module(ex3_3).
 -export([printInts/1, printEvenInts/1]).
 
-
 %%----------------------------------------------------------------------
-%% API function printInts, calls printInts_acc(I, N)
+%% API function printInts,
+%% calls printInts_acc(I, N).
 %% Prints integers from 1 to param N
-%% printInts(3).
+%%
+%% > printInts(3).
 %% Number:1
 %% Number:2
 %% Number:3
@@ -33,9 +34,11 @@ printInts_acc(_Iterator, _Final) -> ok.
 
 
 %%----------------------------------------------------------------------
-%% API function printEvenInts, calls printEvenInts_acc(I, N)
+%% API function printEvenInts
+%% calls printEvenInts_acc(I, N).
 %% Prints even integers from 1 to param N
-%% printEvenInts(5).
+%% 
+%% > printEvenInts(5).
 %% Number:2
 %% Number:4
 %% ok

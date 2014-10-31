@@ -1,28 +1,46 @@
+%%%--------------------------------------------------------------------- 
+%%% Description module ex3_1
+%%%--------------------------------------------------------------------- 
+%%% Sums integers from given parameters
+%%%
+%%%--------------------------------------------------------------------- 
+%%% Exports
+%%%--------------------------------------------------------------------- 
+%%% sum1(Boundary)
+%%%   Sums integers from 1 to Boundary
+%%% sum2(Start, Boundary)
+%%%   Sums integers from Start to Boundary
+%%%--------------------------------------------------------------------- 
 -module(ex3_1).
 -export([sum1/1, sum2/2]).
 
-
 %%----------------------------------------------------------------------
-%% Will sum integers from 1 to Boundary
-%% sum1(3) == 6
+%% API function sum1/1,
+%% calls sum1_acc(I, Boundary, Sum).
+%%
+%% > sum1(3).
+%% 6
 %%----------------------------------------------------------------------
 sum1(Boundary) -> sum1_acc(1, Boundary, 0).
 
-sum1_acc(Index, Boundary, Sum) when Index =< Boundary ->
-  sum1_acc(Index + 1, Boundary, Sum + Index); 
-sum1_acc(_Index, _Boundary, Sum) -> Sum.
+sum1_acc(I, Boundary, Sum) when I =< Boundary ->
+  sum1_acc(I + 1, Boundary, Sum + I); 
+sum1_acc(_I, _Boundary, Sum) -> Sum.
 
 
 %%----------------------------------------------------------------------
-%% Will sum integers from Index to Boundary
-%% It will throw when we the Index > Boundary: ex3_2:sum(3,1).
-%% sum(1,3) == 6
+%% API function sum2/2,
+%% calls sum2_acc(Start, Boundary, Sum).
+%% It will throw when we the I > Boundary
+%%
+%% > sum(1,3).
+%% 6
 %%----------------------------------------------------------------------
-sum2(Index, Boundary) when Index > Boundary ->
-  throw({ error, {"Index > Boundary", Index, Boundary} });
-sum2(Index, Boundary) -> sum2_acc(Index, Boundary, 0).
+sum2(Start, Boundary) when Start > Boundary ->
+  throw({ error, {"Start > Boundary", Start, Boundary} });
+sum2(Start, Boundary) -> sum2_acc(Start, Boundary, 0).
 
-sum2_acc(Index, Boundary, Sum) when Index =< Boundary ->
-  sum2_acc(Index + 1, Boundary, Sum + Index);
-sum2_acc(_Index, _Boundary, Sum) -> Sum.
+sum2_acc(I, Boundary, Sum) when I =< Boundary ->
+  sum2_acc(I + 1, Boundary, Sum + I);
+sum2_acc(_I, _Boundary, Sum) -> Sum.
 
