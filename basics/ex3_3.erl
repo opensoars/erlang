@@ -13,6 +13,13 @@
 -module(ex3_3).
 -export([printInt/1]).
 
+%%----------------------------------------------------------------------
+%% Prints integers from 1 to N
+%% ex3_3:printInt(3).
+%% Number:1
+%% Number:2
+%% Number:3
+%%----------------------------------------------------------------------
 printInt(N) -> printInt_acc(1, N).
 
 printInt_acc(Iterator, Final) when Iterator =< Final ->
