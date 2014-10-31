@@ -29,8 +29,7 @@ printInts(N) -> printInts_acc(1, N).
 printInts_acc(I, N) when I =< N ->
   io:format("Number:~p\n", [I]),
   printInts_acc(I + 1, N);
-printInts_acc(_Iterator, _Final) ->
-  ok.
+printInts_acc(_Iterator, _Final) -> ok.
 
 
 %%----------------------------------------------------------------------
@@ -48,5 +47,4 @@ printEvenInts_acc(I, N) when I =< N, I rem 2 /= 0 ->
 printEvenInts_acc(I, N) when I =< N, I rem 2 == 0 ->
   io:format("Number:~p\n", [I]),
   printEvenInts_acc(I + 1, N);
-printEvenInts_acc(_I, _Final) ->
-  ok.
+printEvenInts_acc(_I, _Final) -> ok.

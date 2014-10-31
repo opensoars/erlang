@@ -16,9 +16,7 @@
 %%----------------------------------------------------------------------
 %% API function filter
 %%----------------------------------------------------------------------
-filter(O, N) ->
-  filter_acc(O, N, 0, []).
-
+filter(O, N) -> filter_acc(O, N, 0, []).
 
 filter_acc(_O, WantLen, CurLen, New) when WantLen == CurLen ->
   reverse(New);
@@ -30,7 +28,18 @@ filter_acc([H | T], WantLen, CurLen, New) ->
 %% API function reverse
 %%----------------------------------------------------------------------
 reverse(L) ->
-  L.
+  reverse_acc(L, 0, []).
+
+reverse_acc([], _I, New) -> New;
+reverse_acc([H | T], I, New) ->
+  
+
+% ?
+%%----------------------------------------------------------------------
+%% Private function len
+%%----------------------------------------------------------------------
+% ?
+
 
 
 
