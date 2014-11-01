@@ -11,10 +11,10 @@
 %%% reverse(L)
 %%%   Returns L reversed.
 %%% concatenate(Lists)
-%%%   When given a list of lists it returns all elements in the lists
+%%%   When given a list of lists, it returns all elements in the lists
 %%%   in one list.
 %%% flatten
-%%%   
+%%%
 %%%---------------------------------------------------------------------
 -module(ex3_5).
 -export([filter/2, reverse/1, concatenate/1]).
