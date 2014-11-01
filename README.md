@@ -15,13 +15,15 @@ So far you can browse:
 Master the Erlang programming language.
 
 
-### Why am I doing this?
-I want to master the art of functional programming. And to be able to add erlang to my toolset.
-
-
 ### Application goals
 * IM server
 * Node.js communication
 * Erlang controlled Node.js application
 * RESTful JSON API
 * And much more..
+
+
+### Why am I doing this?
+I want to master the art of functional programming. And to be able to add erlang to my toolset.
+
+
