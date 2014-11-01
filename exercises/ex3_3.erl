@@ -7,9 +7,9 @@
 %%% Exports
 %%%--------------------------------------------------------------------- 
 %%% printInts(N)
-%%%   Prints integers from 1 to N
+%%%   Prints integers from 1 to N.
 %%% printEvenInts(N)
-%%%   Prints even integers from 1 to N
+%%%   Prints even integers from 1 to N.
 %%%--------------------------------------------------------------------- 
 -module(ex3_3).
 -export([printInts/1, printEvenInts/1]).
