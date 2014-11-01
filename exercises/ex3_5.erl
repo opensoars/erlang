@@ -58,7 +58,7 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %%----------------------------------------------------------------------
 concatenate(L) -> concatenate_acc(L, []).
 
-concatenate_acc() ->
+concatenate_acc(L, Result) ->
 
 %%----------------------------------------------------------------------
 %% API function flatten
@@ -69,4 +69,4 @@ concatenate_acc() ->
 %%----------------------------------------------------------------------
 flatten(L) -> flatten_acc(L, []).
 
-flatten_acc() ->
+flatten_acc(L, Result) ->
