@@ -7,9 +7,9 @@
 %%% Exports
 %%%--------------------------------------------------------------------- 
 %%% filter(O, N)
-%%%   returns a new list with the first N elements of O
+%%%   Returns a new list with the first N elements of O
 %%% reverse(L)
-%%%   returns L reversed
+%%%   Returns L reversed
 %%% concatenate(Lists)
 %%%   
 %%% flatten
