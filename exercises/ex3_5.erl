@@ -10,7 +10,7 @@
 %%%   returns a new list with the first N elements of O
 %%% reverse(L)
 %%%   returns L reversed
-%%% concatenate
+%%% concatenate(Lists)
 %%%   
 %%% flatten
 %%%   

@@ -7,9 +7,9 @@
 %%% Exports
 %%%--------------------------------------------------------------------- 
 %%% create(N)
-%%%   returns a list filled with integers from 1 to N
+%%%   Returns a list filled with integers from 1 to N
 %%% reverse_create(N)
-%%%   returns a list filled with integers from N to 1
+%%%   Returns a list filled with integers from N to 1
 %%%--------------------------------------------------------------------- 
 -module(ex3_2).
 -export([create/1, reverse_create/1]).
