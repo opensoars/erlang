@@ -56,7 +56,7 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > concatenate([[1, 2], [3], [4, 5, six]]).
 %% [1,2,3,4,5,six]
 %%----------------------------------------------------------------------
-concatenate(L) -> concatenate().
+concatenate(L) -> concatenate_acc().
 
 concatenate_acc() ->
 
