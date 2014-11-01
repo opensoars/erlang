@@ -24,6 +24,6 @@ Master the Erlang programming language.
 
 
 ### Why am I doing this?
-I want to master the art of functional programming. And to be able to add erlang to my toolset.
+I want to master the art of functional programming. And to be able to add Erlang to my toolset.
 
 
