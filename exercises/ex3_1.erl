@@ -7,9 +7,9 @@
 %%% Exports
 %%%--------------------------------------------------------------------- 
 %%% sum1(Boundary)
-%%%   Sums integers from 1 to Boundary
+%%%   Sums integers from 1 to Boundary.
 %%% sum2(Start, Boundary)
-%%%   Sums integers from Start to Boundary
+%%%   Sums integers from Start to Boundary.
 %%%--------------------------------------------------------------------- 
 -module(ex3_1).
 -export([sum1/1, sum2/2]).
