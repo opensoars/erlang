@@ -10,9 +10,13 @@
 %%%   returns a new list with the first N elements of O
 %%% reverse(L)
 %%%   returns L reversed
+%%% concatenate
+%%%   
+%%% flatten
+%%%   
 %%%---------------------------------------------------------------------
 -module(ex3_5).
--export([filter/2, reverse/1]).
+-export([filter/2, reverse/1, concatenate/1]).
 
 %%----------------------------------------------------------------------
 %% API function filter/2,
@@ -40,3 +44,17 @@ reverse(L) -> reverse_acc(L, []).
 
 reverse_acc([], N) -> N;
 reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
+
+
+
+%%----------------------------------------------------------------------
+%% API function concatenate/1,
+%% calls concatenate_acc()       !!!
+%%----------------------------------------------------------------------
+concatenate() ->
+
+%%----------------------------------------------------------------------
+%% API function flatten
+%% calls flatten_acc()       !!!
+%%----------------------------------------------------------------------
+flatten() ->
