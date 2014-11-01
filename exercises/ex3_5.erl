@@ -62,7 +62,6 @@ concatenate(L) -> concatenate_acc(L, []).
 
 concatenate_acc([], Result) -> Result;
 concatenate_acc([L_H | L_T], Result) ->
-  concatenate_acc()
 
 
 %%----------------------------------------------------------------------
@@ -75,4 +74,5 @@ concatenate_acc([L_H | L_T], Result) ->
 flatten([]) -> [];
 flatten(L) -> flatten_acc(L, []).
 
+flatten_acc([], Result) -> Result;
 flatten_acc(L, Result) ->
