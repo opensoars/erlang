@@ -15,7 +15,7 @@ So far you can browse:
 Master the Erlang programming language.
 
 
-### Why?
+### Why am I doing this?
 To gain more knowledge and to be able to add Erlang to my toolset.
 
 
