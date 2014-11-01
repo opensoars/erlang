@@ -48,7 +48,6 @@ reverse_acc([], N) -> N;
 reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 
 
-
 %%----------------------------------------------------------------------
 %% API function concatenate/1,
 %% calls concatenate_acc()
