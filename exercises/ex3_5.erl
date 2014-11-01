@@ -11,7 +11,8 @@
 %%% reverse(L)
 %%%   Returns L reversed
 %%% concatenate(Lists)
-%%%   
+%%%   when given a list of lists it returns all elements in the lists
+%%%   in one list
 %%% flatten
 %%%   
 %%%---------------------------------------------------------------------
