@@ -13,7 +13,7 @@
 %%% concatenate(Lists)
 %%%   When given a list of lists, it returns all elements in the lists
 %%%   in one list.
-%%% flatten
+%%% flatten(List)
 %%%   When given a list of lists with nested lists in it, it will take
 %%%   out all elements in the nested lists and put it in a normal list.
 %%%---------------------------------------------------------------------
