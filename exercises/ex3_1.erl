@@ -33,7 +33,7 @@ sum1_acc(_I, _Boundary, Sum) -> Sum.
 %% calls sum2_acc(Start, Boundary, Sum).
 %% It will throw when we the I > Boundary
 %%
-%% > sum(1,3).
+%% > sum(1, 3).
 %% 6
 %%----------------------------------------------------------------------
 sum2(Start, Boundary) when Start > Boundary ->
