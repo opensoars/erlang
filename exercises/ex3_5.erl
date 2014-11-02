@@ -70,8 +70,8 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > flatten([[1,[2,[3],[]]], [[[4]]], [5,6]]).
 %% [1,2,3,4,5,6]
 %%----------------------------------------------------------------------
-flatten([]) -> [];
-flatten(L) -> flatten_acc(L, []).
+% flatten([]) -> [];
+% flatten(L) -> flatten_acc(L, []).
 
-flatten_acc([], Result) -> Result;
-flatten_acc(L, Result) ->
+% flatten_acc([], Result) -> Result;
+% flatten_acc(L, Result) ->
