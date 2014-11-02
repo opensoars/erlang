@@ -19,7 +19,7 @@ Master the Erlang programming language and enviroment.
 * IM server
 * Node.js <-> Erlang communication
 * Erlang controlled Node.js application
-* RESTful JSON API
+* RESTful (JSON) API
 * And much more..
 
 
