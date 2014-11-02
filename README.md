@@ -12,7 +12,7 @@ So far you can browse:
 
 
 ### Goal
-Master the Erlang programming language and enviroment.
+Master the Erlang programming language and it's enviroment.
 
 
 ### Application goals
