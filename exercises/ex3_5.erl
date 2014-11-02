@@ -55,12 +55,12 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > concatenate([[1, 2], [3], [4, 5, six]]).
 %% [1,2,3,4,5,six]
 %%----------------------------------------------------------------------
-concatenate([]) -> [];
-concatenate(L) -> concatenate_acc(L, []).
+% concatenate([]) -> [];
+% concatenate(L) -> concatenate_acc(L, []).
 
 
-concatenate_acc([], Result) -> Result;
-concatenate_acc([L_H | L_T], Result) ->
+% concatenate_acc([], Result) -> Result;
+% concatenate_acc([L_H | L_T], Result) ->
 
 
 %%----------------------------------------------------------------------
