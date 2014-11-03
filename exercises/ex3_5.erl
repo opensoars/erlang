@@ -18,7 +18,7 @@
 %%%   out all elements in the nested lists and put it in a normal list.
 %%%---------------------------------------------------------------------
 -module(ex3_5).
--export([filter/2, reverse/1, concatenate/1]).
+-export([filter/2, reverse/1, concatenate/1, add/2]).
 
 %%----------------------------------------------------------------------
 %% API function filter/2,
@@ -67,14 +67,21 @@ concatenate_acc([Head | Tail], Res) ->
 concatenate_acc([], Res) -> Res.
 
 
-len(L) -> len_acc(L, 0).
+% len(L) -> len_acc(L, 0).
+% 
+% len_acc([], C) -> C;
+% len_acc([Head | Tail], C) ->
+%   len_acc(Tail, C + 1).
 
-len_acc([], C) -> C;
-len_acc([Head | Tail], C) ->
-  len_acc(Tail, C + 1).
+%From      To      
+%[3, 4, 5] [1, 2], 
 
+add(From, To) -> add_acc(From, To, []).
 
-
+add_acc([], [], _Res) -> [];
+add_acc(From, To, Res) ->
+  add_acc(, [ | ])
+  
 
 %%----------------------------------------------------------------------
 %% API function flatten
