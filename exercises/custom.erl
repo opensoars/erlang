@@ -17,7 +17,7 @@
 %% API function ints_to_atoms
 %%
 %% > ints_to_atoms([1,2,3]).
-%% [one, two, three]
+%% [one, two, three ]
 %%----------------------------------------------------------------------
 
 ints_to_atoms([]) -> [];

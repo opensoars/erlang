@@ -67,22 +67,6 @@ concatenate_acc([Head | Tail], Res) ->
 concatenate_acc([], Res) -> Res.
 
 
-% len(L) -> len_acc(L, 0).
-% 
-% len_acc([], C) -> C;
-% len_acc([Head | Tail], C) ->
-%   len_acc(Tail, C + 1).
-
-%From      To      
-%[3, 4, 5] [1, 2], 
-
-add(From, To) -> add_acc(From, To, []).
-
-add_acc([], [], _Res) -> [];
-add_acc(From, To, Res) ->
-  add_acc(, [ | ])
-  
-
 %%----------------------------------------------------------------------
 %% API function flatten
 %% calls flatten_acc()
