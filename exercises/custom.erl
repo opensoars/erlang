@@ -11,23 +11,23 @@
 %%%---------------------------------------------------------------------
 
 -module(custom).
--export([ints_to_atom/1]).
+-export([ints_to_atoms/1]).
 
 %%----------------------------------------------------------------------
-%% API function ints_to_atom
+%% API function ints_to_atoms
 %%----------------------------------------------------------------------
 
-int_to_atom([]) -> [];
-int_to_atom([H | T]) ->
+ints_to_atoms([]) -> [];
+ints_to_atoms([H | T]) ->
   case H of
-    0 -> [zero | int_to_atom()];
-    1 -> [one | int_to_atom()];
-    2 -> [two | int_to_atom()];
-    3 -> [three | int_to_atom()];
-    4 -> [four | int_to_atom()];
-    5 -> [five | int_to_atom()];
-    6 -> [six | int_to_atom()];
-    7 -> [seven | int_to_atom()];
-    8 -> [eight | int_to_atom()];
-    9 -> [nine | int_to_atom()] 
+    0 -> [zero | ints_to_atoms(T)];
+    1 -> [one | ints_to_atoms(T)];
+    2 -> [two | ints_to_atoms(T)];
+    3 -> [three | ints_to_atoms(T)];
+    4 -> [four | ints_to_atoms(T)];
+    5 -> [five | ints_to_atoms(T)];
+    6 -> [six | ints_to_atoms(T)];
+    7 -> [seven | ints_to_atoms(T)];
+    8 -> [eight | ints_to_atoms(T)];
+    9 -> [nine | ints_to_atoms(T)] 
   end.
