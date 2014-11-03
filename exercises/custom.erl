@@ -20,14 +20,14 @@
 int_to_atom([]) -> [];
 int_to_atom([H | T]) ->
   case H of
-    0 -> zero;
-    1 -> one;
-    2 -> two;
-    3 -> three;
-    4 -> four;
-    5 -> five;
-    6 -> six;
-    7 -> seven;
-    8 -> eight;
-    9 -> nine 
+    0 -> [zero | int_to_atom()];
+    1 -> [one | int_to_atom()];
+    2 -> [two | int_to_atom()];
+    3 -> [three | int_to_atom()];
+    4 -> [four | int_to_atom()];
+    5 -> [five | int_to_atom()];
+    6 -> [six | int_to_atom()];
+    7 -> [seven | int_to_atom()];
+    8 -> [eight | int_to_atom()];
+    9 -> [nine | int_to_atom()] 
   end.
