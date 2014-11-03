@@ -17,4 +17,5 @@
 %% API function capitalize_i
 %%----------------------------------------------------------------------
 
-
+capitalize_i([]) -> [];
+capitalize_i([H | T]) when H == "i" -> ["I", T].
