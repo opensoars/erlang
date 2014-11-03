@@ -55,12 +55,25 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > concatenate([[1, 2], [3], [4, 5, six]]).
 %% [1,2,3,4,5,six]
 %%----------------------------------------------------------------------
-% concatenate([]) -> [];
-% concatenate(L) -> concatenate_acc(L, []).
+concatenate(L) -> concatenate_acc(L, []).
+
+% concatenate_acc([Head | Tail], [R_H | R_T]) ->
+
+concatenate_acc([Head | Tail], Res) ->
+  io:format("Res:~p~n", [Res]),
+  io:format("Head:~p~n", [Head]),
+  io:format("Tail:~p~n", [Tail]),
+  concatenate_acc(Tail, [Head | Res]);
+concatenate_acc([], Res) -> Res.
 
 
-% concatenate_acc([], Result) -> Result;
-% concatenate_acc([L_H | L_T], Result) ->
+len(L) -> len_acc(L, 0).
+
+len_acc([], C) -> C;
+len_acc([Head | Tail], C) ->
+  len_acc(Tail, C + 1).
+
+
 
 
 %%----------------------------------------------------------------------
