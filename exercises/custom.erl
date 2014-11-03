@@ -11,10 +11,23 @@
 %%%---------------------------------------------------------------------
 
 -module(custom).
--export([ints_to_text/1]).
+-export([ints_to_atom/1]).
 
 %%----------------------------------------------------------------------
-%% API function ints_to_text
+%% API function ints_to_atom
 %%----------------------------------------------------------------------
 
-int_to_text([]) -> [];
+int_to_atom([]) -> [];
+int_to_atom([H | T]) ->
+  case H of
+    0 -> zero;
+    1 -> one;
+    2 -> two;
+    3 -> three;
+    4 -> four;
+    5 -> five;
+    6 -> six;
+    7 -> seven;
+    8 -> eight;
+    9 -> nine 
+  end.
