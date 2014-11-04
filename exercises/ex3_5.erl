@@ -45,7 +45,7 @@ concatenate(L) -> concatenate_acc(L, []).
 
 concatenate_acc([], N) -> reverse(N);
 concatenate_acc(Single, N) ->
-  concatenate_acc(addElems(Single, N));
+  concatenate_acc([], addElems(Single, N));
 concatenate_acc([List_head | List_tail], N) ->
   concatenate_acc(List_tail, addElems(List_head, N)).
 
