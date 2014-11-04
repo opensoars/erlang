@@ -61,6 +61,19 @@ addElems([To_add_head | To_add_tail], N) ->
   
 
 %%----------------------------------------------------------------------
+%% API function flatten
+%%
+%% > flatten([[1,[2,[3],[]]], [[[4]]], [5,6]]).
+%% [1,2,3,4,5,6]
+%%----------------------------------------------------------------------
+flatten(X) -> reverse(flatten(X, [])).
+
+flatten([], Res) -> Res;
+flatten([H|T], Res) when is_list(H) -> flatten(T, flatten(H, Res));
+flatten([H|T], Res) -> flatten(T, [H | Res]).
+
+
+%%----------------------------------------------------------------------
 %% Private function reverse/1,
 %% reverses list L
 %% calls reverse_acc(L, N).
@@ -72,16 +85,3 @@ reverse(L) -> reverse_acc(L, []).
 
 reverse_acc([], N) -> N;
 reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
-
-
-%%----------------------------------------------------------------------
-%% API function flatten
-%%
-%% > flatten([[1,[2,[3],[]]], [[[4]]], [5,6]]).
-%% [1,2,3,4,5,6]
-%%----------------------------------------------------------------------
-flatten(X) -> reverse(flatten(X, [])).
-
-flatten([], Res) -> Res;
-flatten([H|T], Res) when is_list(H) -> flatten(T, flatten(H, Res));
-flatten([H|T], Res) -> flatten(T, [H | Res]).
