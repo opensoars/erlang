@@ -44,8 +44,6 @@ concatenate([]) -> [];
 concatenate(L) -> concatenate_acc(L, []).
 
 concatenate_acc([], N) -> reverse(N);
-concatenate_acc(Single, N) ->
-  concatenate_acc([], addElems(Single, N));
 concatenate_acc([List_head | List_tail], N) ->
   concatenate_acc(List_tail, addElems(List_head, N)).
 
@@ -83,7 +81,8 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > flatten([[1,[2,[3],[]]], [[[4]]], [5,6]]).
 %% [1,2,3,4,5,6]
 %%----------------------------------------------------------------------
-flatten([]) -> [];
-flatten([List_head | List_tail]) ->
-  concatenate(List_head).
-%  [List_head | flatten(List_tail)].
+flatten(X) -> lists:reverse(flatten(X,[])).
+
+flatten([], Res) -> Res;
+flatten([H|T], Res) when is_list(H) -> flatten(T, flatten(H, Res));
+flatten([H|T], Res) -> flatten(T, [H | Res]).
