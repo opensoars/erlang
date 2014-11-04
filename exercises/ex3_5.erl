@@ -8,8 +8,6 @@
 %%%--------------------------------------------------------------------- 
 %%% filter(O, N)
 %%%   Returns a new list with the first N elements of O.
-%%% reverse(L)
-%%%   Returns L reversed.
 %%% concatenate(Lists)
 %%%   When given a list of lists, it returns all elements in the lists
 %%%   in one list.
@@ -18,7 +16,7 @@
 %%%   out all elements in the nested lists and put it in a normal list.
 %%%---------------------------------------------------------------------
 -module(ex3_5).
--export([filter/2, reverse/1, concatenate/1]).
+-export([filter/2, concatenate/1]).
 
 %%----------------------------------------------------------------------
 %% API function filter/2,
@@ -36,19 +34,6 @@ filter_acc([H | T], WantLen, CurLen, N) ->
 
 
 %%----------------------------------------------------------------------
-%% API function reverse/1,
-%% calls reverse_acc(L, N).
-%%
-%% > reverse([3,2,1]).
-%% [1,2,3]
-%%----------------------------------------------------------------------
-reverse(L) -> reverse_acc(L, []).
-
-reverse_acc([], N) -> N;
-reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
-
-
-%%----------------------------------------------------------------------
 %% API function concatenate/1,
 %% calls concatenate_acc()
 %%
@@ -62,6 +47,21 @@ concatenate_acc([], N) -> N;
 concatenate_acc([List_head | List_tail], N) ->
   concatenate_acc(List_tail, addElems(List_head, N)).
 
+
+%%----------------------------------------------------------------------
+%% Private function reverse/1,
+%% reverses list L
+%% calls reverse_acc(L, N).
+%%
+%% > reverse([3,2,1]).
+%% [1,2,3]
+%%----------------------------------------------------------------------
+reverse(L) -> reverse_acc(L, []).
+
+reverse_acc([], N) -> N;
+reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
+
+
 %%----------------------------------------------------------------------
 %% Private function addElems/2,
 %% adds elements of list To_add to list N
@@ -73,19 +73,6 @@ addElems([], N) -> reverse(N);
 addElems([To_add_head | To_add_tail], N) ->
   addElems(To_add_tail, [To_add_head | N]).
   
-
-
-% concatenate(L) -> concatenate_acc(L, []).
-% 
-% % concatenate_acc([Head | Tail], [R_H | R_T]) ->
-% 
-% concatenate_acc([Head | Tail], Res) ->
-%   io:format("Res:~p~n", [Res]),
-%   io:format("Head:~p~n", [Head]),
-%   io:format("Tail:~p~n", [Tail]),
-%   concatenate_acc(Tail, [Head | Res]);
-% concatenate_acc([], Res) -> Res.
-
 
 %%----------------------------------------------------------------------
 %% API function flatten
