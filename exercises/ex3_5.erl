@@ -43,10 +43,22 @@ filter_acc([H | T], WantLen, CurLen, N) ->
 concatenate([]) -> [];
 concatenate(L) -> concatenate_acc(L, []).
 
-concatenate_acc([], N) -> N;
+concatenate_acc([], N) -> reverse(N);
 concatenate_acc([List_head | List_tail], N) ->
   concatenate_acc(List_tail, addElems(List_head, N)).
 
+
+%%----------------------------------------------------------------------
+%% Private function addElems/2,
+%% adds elements of list To_add to list N.
+%%
+%% > addElems([2,3], [1]).
+%% [1,2,3]
+%%----------------------------------------------------------------------
+addElems([], N) -> N;
+addElems([To_add_head | To_add_tail], N) ->
+  addElems(To_add_tail, [To_add_head | N]).
+  
 
 %%----------------------------------------------------------------------
 %% Private function reverse/1,
@@ -62,17 +74,7 @@ reverse_acc([], N) -> N;
 reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 
 
-%%----------------------------------------------------------------------
-%% Private function addElems/2,
-%% adds elements of list To_add to list N
-%%
-%% > addElems([2,3], [1]).
-%% [1,2,3]
-%%----------------------------------------------------------------------
-addElems([], N) -> reverse(N);
-addElems([To_add_head | To_add_tail], N) ->
-  addElems(To_add_tail, [To_add_head | N]).
-  
+
 
 %%----------------------------------------------------------------------
 %% API function flatten
