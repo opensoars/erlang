@@ -18,7 +18,7 @@
 %%%   out all elements in the nested lists and put it in a normal list.
 %%%---------------------------------------------------------------------
 -module(ex3_5).
--export([filter/2, reverse/1, concatenate/1, add/2]).
+-export([filter/2, reverse/1, concatenate/1]).
 
 %%----------------------------------------------------------------------
 %% API function filter/2,
@@ -55,7 +55,24 @@ reverse_acc([H | T], N) -> reverse_acc(T, [H | N]).
 %% > concatenate([[1, 2], [3], [4, 5, six]]).
 %% [1,2,3,4,5,six]
 %%----------------------------------------------------------------------
+concatenate([]) -> [];
+concatenate(L) -> concatenate_acc(L, []).
 
+concatenate_acc([], N) -> N;
+concatenate_acc([List_head | List_tail], N) ->
+  concatenate_acc(List_tail, addElems(List_head, N)).
+
+%%----------------------------------------------------------------------
+%% Private function addElems/2,
+%% adds elements of list To_add to list N
+%%
+%% > addElems([2,3], [1]).
+%% [1,2,3]
+%%----------------------------------------------------------------------
+addElems([], N) -> reverse(N);
+addElems([To_add_head | To_add_tail], N) ->
+  addElems(To_add_tail, [To_add_head | N]).
+  
 
 
 % concatenate(L) -> concatenate_acc(L, []).
