@@ -1,20 +1,17 @@
--module(echo).
+-module(echo2).
 -export([go/0, loop/0]).
 
 go() ->
-  Pid = spawn(echo, loop, []),
-  Pid ! {self(), hello1},
+  register(echo2, spawn(echo2, loop, [])),
+  echo2 ! {self(), hello},
   receive
-    {Pid, Msg} ->
+    {_Pid, Msg} ->
     io:format("~w~n",[Msg])
-  end,
-  Pid ! stop.
-
+  end.
 
 loop() ->
   receive
     {From, Msg} ->
-      io:format("Msg:~w From:~w~n", [Msg, From]),
       From ! {self(), Msg},
       loop();
     stop ->
