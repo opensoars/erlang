@@ -11,3 +11,4 @@ start_proc(Num, Pid) ->
   NPid = spawn(?MODULE, start_proc, [Num-1, Pid]),
   NPid ! ok,
   receive ok -> ok end.
+
