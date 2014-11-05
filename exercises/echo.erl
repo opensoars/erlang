@@ -53,8 +53,8 @@ stop() ->
 %% Takes messages that are sent using the print/1 function that follow
 %% our message prototcol described in the head comment, and prints it
 %% out along with the corresponding pid.
-%% When a message doesn't follow the message protocol, the pid from the
-%% sender is logged.
+%% When a message doesn't follow the message protocol, we log the pid
+%% belonging to the sender along with the data we received
 %%----------------------------------------------------------------------
 loop() ->
   receive
