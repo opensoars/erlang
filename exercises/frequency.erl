@@ -11,9 +11,11 @@
 %%% start()
 %%%   Starts our server so we are ready for allocations
 %%% allocate()
-%%%   Allocates an acual Frequency
+%%%   Allocates an acual Frequency and removes the allocated
+%%%   frequency from the free frequencies list
 %%% deallocate(Frequency_to_deallocate)
-%%%   Deallocates Frequency_to_deallocate
+%%%   Deallocates Frequency_to_deallocate and puts it back in the
+%%%   free frequencies list
 %%% stop()
 %%%   Stops our server
 %%%---------------------------------------------------------------------
