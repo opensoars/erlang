@@ -11,12 +11,15 @@
 %%%---------------------------------------------------------------------
 
 -module(ring).
--export([start/3]).
+-export([start/3, process/0]).
 
 
 start(Mc, Pc, Message) ->
   Pid = spawn(ring, process, []).
 
 
-process() -> ok.
+process() -> 
+  receive
+
+  end.
 
