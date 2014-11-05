@@ -63,9 +63,9 @@ loop() ->
       loop(),
       ok;
 
-    {From, Received} ->
+    {From, Non_protocol_msg} ->
       io:format("Got undefined message from: ~w~n", [From]),
-      io:format("Here is what we received: ~w~n", [Received]),
+      io:format("Here is what we received: ~w~n", [Non_protocol_msg]),
       loop(),
       ok;
 
