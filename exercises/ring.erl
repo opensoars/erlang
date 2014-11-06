@@ -18,8 +18,8 @@ start(Mc, Pc, Message) ->
   Pid = spawn(ring, process, []).
 
 
-process() -> 
-  receive
-
-  end.
+% process() -> 
+%   receive
+% 
+%   end.
 
