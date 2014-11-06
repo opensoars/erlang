@@ -86,3 +86,11 @@ loop(Frequencies) ->
     {request, Pid, Stop} ->
       reply(Pid, ok)
   end.
+
+
+%%----------------------------------------------------------------------
+%% Private function reply
+%% Helper function that sends replies to call receive
+%%----------------------------------------------------------------------
+reply(Pid, Reply) ->
+  Pid ! {reply, Reply}.
