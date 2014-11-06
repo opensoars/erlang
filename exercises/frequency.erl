@@ -83,7 +83,7 @@ loop(Frequencies) ->
       NewFrequencies = deallocate(Frequencies, Freq),
       reply(Pid, ok),
       loop(NewFrequencies);
-    {request, Pid, Stop} ->
+    {request, Pid, stop} ->
       reply(Pid, ok)
   end.
 
@@ -101,10 +101,15 @@ reply(Pid, Reply) ->
 %% Allocates a frequency. If there's one free, it will respond with it,
 %% if there isn't a free frequency we return an error.
 %%----------------------------------------------------------------------
-allocate([], Allocated, _Pid) ->
+allocate({[], Allocated}, _Pid) ->
   {{[], Allocated}, {error, no_frequency}};
 allocate({[Freq|Free], Allocated}, Pid) ->
   {{Free, [{Freq, Pid}|Allocated]}, {ok, Freq}}.
+
+
+
+
+
 
 %%----------------------------------------------------------------------
 %% Internal helper function deallocate
