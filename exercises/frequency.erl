@@ -103,7 +103,8 @@ reply(Pid, Reply) ->
 %%----------------------------------------------------------------------
 allocate([], Allocated, _Pid) ->
   {{[], Allocated}, {error, no_frequency}};
-
+allocate({[Freq|Free], Allocated}, Pid) ->
+  {{Free, [{Freq, Pid}|Allocated]}, {ok, Freq}}.
 
 %%----------------------------------------------------------------------
 %% Internal helper function deallocate
