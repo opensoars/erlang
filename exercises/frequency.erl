@@ -110,4 +110,6 @@ allocate({[Freq|Free], Allocated}, Pid) ->
 %% Internal helper function deallocate
 %% Returns an used frequency to the free frequencies list
 %%----------------------------------------------------------------------
-deallocate() ->
+deallocate({Free, Allocated}, Freq) ->
+  NewAllocated=lists:keydelete(Freq, 1, Allocated),
+  {[Freq|Free], NewAllocated}.
