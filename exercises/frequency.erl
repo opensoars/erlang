@@ -66,3 +66,23 @@ call(Message) ->
   receive
     {reply, Reply} -> Reply
   end.
+
+%%----------------------------------------------------------------------
+%% Private function loop
+%% Main receive loop
+%%----------------------------------------------------------------------
+loop(Frequencies) ->
+  receive
+    {request, Pid, allocate} ->
+      {NewFrequencies, Reply} = allocate(Frequencies, Pid),
+      reply(Pid, Reply),
+      loop(NewFrequencies);
+    {request, Pid, {deallocate, Freq}} ->
+      NewFrequencies = deallocate(Frequencies, Freq),
+      reply(Pid, ok),
+      loop(NewFrequencies);
+    {request, Pid, Stop} ->
+      reply(Pid, ok)
+  end.
+
+  
