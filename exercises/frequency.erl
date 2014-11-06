@@ -101,9 +101,12 @@ reply(Pid, Reply) ->
 %% Allocates a frequency. If there's one free, it will respond with it,
 %% if there isn't a free frequency we return an error.
 %%----------------------------------------------------------------------
+allocate() ->
+  {{[], Allocated}, {error, no_frequency}};
 
 
 %%----------------------------------------------------------------------
 %% Internal helper function deallocate
 %% Returns an used frequency to the free frequencies list
 %%----------------------------------------------------------------------
+deallocate() ->
