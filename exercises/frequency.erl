@@ -101,7 +101,7 @@ reply(Pid, Reply) ->
 %% Allocates a frequency. If there's one free, it will respond with it,
 %% if there isn't a free frequency we return an error.
 %%----------------------------------------------------------------------
-allocate() ->
+allocate([], Allocated, _Pid) ->
   {{[], Allocated}, {error, no_frequency}};
 
 
