@@ -49,7 +49,7 @@ stop() ->
 
 
 %%----------------------------------------------------------------------
-%% API function loop
+%% Spawn function loop
 %% Takes messages that are sent using the print/1 function that follow
 %% our message prototcol described in the head comment, and prints it
 %% out along with the corresponding pid.
