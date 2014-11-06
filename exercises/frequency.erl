@@ -42,7 +42,7 @@ init() ->
   loop(Frequencies).
 
 %%----------------------------------------------------------------------
-%% Private function get_frequencies
+%% Internal function get_frequencies
 %% Returns a list with hardcoded frequencies
 %%----------------------------------------------------------------------
 get_frequencies() -> [10, 11, 12, 13, 14, 15].
@@ -59,7 +59,7 @@ deallocate(Freq) -> call({deallocate, Freq}).
 
 
 %%----------------------------------------------------------------------
-%% Private function call
+%% Internal function call
 %% Used to hide our message protocol in a functional interface
 %%----------------------------------------------------------------------
 call(Message) ->
@@ -70,7 +70,7 @@ call(Message) ->
 
 
 %%----------------------------------------------------------------------
-%% Private function loop
+%% Internal function loop
 %% Main receive loop
 %%----------------------------------------------------------------------
 loop(Frequencies) ->
@@ -89,7 +89,7 @@ loop(Frequencies) ->
 
 
 %%----------------------------------------------------------------------
-%% Private function reply
+%% Internal function reply
 %% Helper function that sends replies to call receive
 %%----------------------------------------------------------------------
 reply(Pid, Reply) ->
