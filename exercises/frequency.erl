@@ -63,9 +63,12 @@ deallocate(Freq) -> call({deallocate, Freq}).
 %% Used to hide our message protocol in a functional interface.
 %%----------------------------------------------------------------------
 call(Message) ->
-  frequency ! {request, self(), Message},
-  receive
-    {reply, Reply} -> Reply
+  Pid = whereis(frequency),
+  if
+    Pid /= undefined ->
+      frequency ! {request, self(), Message},
+      receive {reply, Reply} -> Reply end;
+    Pid == undefined -> {error, frequency_server_not_running}
   end.
 
 
