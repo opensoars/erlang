@@ -18,4 +18,35 @@
 %%%   free frequencies list
 %%% stop()
 %%%   Stops our server
+%%% init()
+%%%   Initializes a frequency process
 %%%---------------------------------------------------------------------
+-module(frequency).
+-export([start/0, allocate/0, deallocate/1, stop/0]).
+-export([init/0]).
+
+%%----------------------------------------------------------------------
+%% API function start
+%% Spawns a child process and registers it as frequency
+%%----------------------------------------------------------------------
+start() ->
+  register(frequency, spawn(frequency, init, [])).
+
+%%----------------------------------------------------------------------
+%% Spawn function init
+%% Initializes our listen loop
+%%----------------------------------------------------------------------
+init() ->
+  Frequencies = {get_frequencies(), []},
+  loop(Frequencies).
+
+%%----------------------------------------------------------------------
+%% Private function get_frequencies
+%% Returns a list with hardcoded frequencies
+%%----------------------------------------------------------------------
+get_frequencies() -> [10, 11, 12, 13, 14, 15].
+
+
+
+
+
