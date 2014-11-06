@@ -14,8 +14,8 @@
 -export([start/3, process/0]).
 
 
-start(Mc, Pc, Message) ->
-  Pid = spawn(ring, process, []).
+% start(Mc, Pc, Message) ->
+%   Pid = spawn(ring, process, []).
 
 
 % process() -> 
