@@ -68,7 +68,8 @@ call(Message) ->
     Pid /= undefined ->
       frequency ! {request, self(), Message},
       receive {reply, Reply} -> Reply end;
-    Pid == undefined -> {error, frequency_server_not_running}
+    Pid == undefined ->
+      {error, frequency_server_not_running}
   end.
 
 
