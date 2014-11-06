@@ -47,6 +47,11 @@ init() ->
 get_frequencies() -> [10, 11, 12, 13, 14, 15].
 
 
-
-
-
+%%----------------------------------------------------------------------
+%% Client functions
+%% Used to hide our data passing protocol so it doesn't matter if our
+%% client code changed, as long as we keep using the protocol.
+%%----------------------------------------------------------------------
+stop()           -> call(stop).
+allocate()       -> call(allocate).
+deallocate(Freq) -> call({deallocate, Freq}).
