@@ -32,6 +32,7 @@
 start() ->
   register(frequency, spawn(frequency, init, [])).
 
+
 %%----------------------------------------------------------------------
 %% Spawn function init
 %% Initializes our listen loop
@@ -67,6 +68,7 @@ call(Message) ->
     {reply, Reply} -> Reply
   end.
 
+
 %%----------------------------------------------------------------------
 %% Private function loop
 %% Main receive loop
@@ -84,5 +86,3 @@ loop(Frequencies) ->
     {request, Pid, Stop} ->
       reply(Pid, ok)
   end.
-
-  
