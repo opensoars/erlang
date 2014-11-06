@@ -34,12 +34,12 @@ start() ->
 
 
 %%----------------------------------------------------------------------
-%% Spawn function init
-%% Initializes our listen loop
+%% Spawn function init, which initializes our listen loop
 %%----------------------------------------------------------------------
 init() ->
   Frequencies = {get_frequencies(), []},
   loop(Frequencies).
+
 
 %%----------------------------------------------------------------------
 %% Internal function get_frequencies
@@ -70,8 +70,7 @@ call(Message) ->
 
 
 %%----------------------------------------------------------------------
-%% Internal function loop
-%% Main receive loop
+%% Internal function loop which is our main receive loop
 %%----------------------------------------------------------------------
 loop(Frequencies) ->
   receive
@@ -105,10 +104,6 @@ allocate({[], Allocated}, _Pid) ->
   {{[], Allocated}, {error, no_frequency}};
 allocate({[Freq|Free], Allocated}, Pid) ->
   {{Free, [{Freq, Pid}|Allocated]}, {ok, Freq}}.
-
-
-
-
 
 
 %%----------------------------------------------------------------------
