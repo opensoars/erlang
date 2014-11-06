@@ -55,3 +55,14 @@ get_frequencies() -> [10, 11, 12, 13, 14, 15].
 stop()           -> call(stop).
 allocate()       -> call(allocate).
 deallocate(Freq) -> call({deallocate, Freq}).
+
+
+%%----------------------------------------------------------------------
+%% Private function call
+%% Used to hide our message protocol in a functional interface
+%%----------------------------------------------------------------------
+call(Message) ->
+  frequency ! {request, self(), Message},
+  receive
+    {reply, Reply} -> Reply
+  end.
