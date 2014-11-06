@@ -27,7 +27,7 @@
 
 %%----------------------------------------------------------------------
 %% API function start
-%% Spawns a child process and registers it as frequency
+%% Spawns a child process and registers it as frequency.
 %%----------------------------------------------------------------------
 start() ->
   register(frequency, spawn(frequency, init, [])).
@@ -60,7 +60,7 @@ deallocate(Freq) -> call({deallocate, Freq}).
 
 %%----------------------------------------------------------------------
 %% Internal function call
-%% Used to hide our message protocol in a functional interface
+%% Used to hide our message protocol in a functional interface.
 %%----------------------------------------------------------------------
 call(Message) ->
   frequency ! {request, self(), Message},
@@ -90,7 +90,14 @@ loop(Frequencies) ->
 
 %%----------------------------------------------------------------------
 %% Internal function reply
-%% Helper function that sends replies to call receive
+%% Helper function that sends replies to call receive.
 %%----------------------------------------------------------------------
 reply(Pid, Reply) ->
   Pid ! {reply, Reply}.
+
+
+%%----------------------------------------------------------------------
+%% Internal helper function allocate
+%% Allocates a frequency. If there's one free, it will respond with it,
+%% if there isn't a free frequency we return an error.
+%%----------------------------------------------------------------------
