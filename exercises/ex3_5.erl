@@ -74,7 +74,7 @@ flatten([H|T], Res) -> flatten(T, [H | Res]).
 
 
 %%----------------------------------------------------------------------
-%% Private function reverse/1,
+%% Internal function reverse/1,
 %% reverses list L
 %% calls reverse_acc(L, N).
 %%
