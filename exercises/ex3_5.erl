@@ -49,7 +49,7 @@ concatenate_acc([List_head | List_tail], N) ->
 
 
 %%----------------------------------------------------------------------
-%% Private function addElems/2,
+%% Internal function addElems/2,
 %% adds elements of list To_add to list N.
 %%
 %% > addElems([2,3], [1]).
