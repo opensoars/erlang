@@ -46,7 +46,7 @@ concatenate(L) -> concatenate_acc(L, []).
 concatenate_acc([], N) -> reverse(N);
 concatenate_acc([List_head | List_tail], N) ->
   concatenate_acc(List_tail, addElems(List_head, N)).
-
+ 
 
 %%----------------------------------------------------------------------
 %% Internal function addElems/2,
@@ -58,7 +58,7 @@ concatenate_acc([List_head | List_tail], N) ->
 addElems([], N) -> N;
 addElems([To_add_head | To_add_tail], N) ->
   addElems(To_add_tail, [To_add_head | N]).
-  
+
 
 %%----------------------------------------------------------------------
 %% API function flatten
