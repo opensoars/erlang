@@ -17,8 +17,8 @@ Master the Erlang programming language and it's enviroment.
 
 ### Application goals
 * IM server
-* Node.js <-> Erlang communication
-* C <-> Erlang communication
+* Node.js <=> Erlang communication
+* C <=> Erlang communication
 * Erlang controlled Node.js application
 * RESTful (JSON) API
 * And much more..
