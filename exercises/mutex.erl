@@ -51,7 +51,6 @@ busy(Pid) ->
       free()
   end.
 
-
 terminate() ->
   receive
     {wait, Pid} ->
