@@ -21,7 +21,10 @@
 -module(ex3_4).
 -export([new/0, destroy/1, write/3, delete/2, read/2, match/2]).
 
-
+%%----------------------------------------------------------------------
+%% API function new
+%% Returns an empty list which serves as a new database
+%%----------------------------------------------------------------------
 new() ->
   [].
 
