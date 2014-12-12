@@ -9,9 +9,9 @@
 %%% ints_to_atoms(IntList)
 %%%   turns a list of integers below 10 into a list of atoms
 %%%---------------------------------------------------------------------
-
 -module(custom).
 -export([ints_to_atoms/1]).
+
 
 %%----------------------------------------------------------------------
 %% API function ints_to_atoms
