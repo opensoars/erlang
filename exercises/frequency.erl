@@ -25,6 +25,7 @@
 -export([start/0, allocate/0, deallocate/1, stop/0]).
 -export([init/0]).
 
+
 %%----------------------------------------------------------------------
 %% API function start
 %% Spawns a child process and registers it as frequency.
