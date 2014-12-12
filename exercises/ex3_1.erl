@@ -14,6 +14,7 @@
 -module(ex3_1).
 -export([sum1/1, sum2/2]).
 
+
 %%----------------------------------------------------------------------
 %% API function sum1/1,
 %% calls sum1_acc(I, Boundary, Sum).
