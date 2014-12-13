@@ -47,7 +47,8 @@ write() ->
 
 %%----------------------------------------------------------------------
 %% API function delete
-%% Deletes a key value tuple from specified database list
+%% Deletes a key value tuple from specified database list by searching
+%% for a tuple that matches the the specified key
 %%----------------------------------------------------------------------
 delete() ->
 
@@ -55,12 +56,14 @@ delete() ->
 %%----------------------------------------------------------------------
 %% API function read
 %% Returns a value from a key value tuple in specified database list
+%% by searching for keys
 %%----------------------------------------------------------------------
 read() ->
 
 
 %%----------------------------------------------------------------------
 %% API function match
-%%
+%% Returns a key from a key value tuple in specified database list
+%% by searching for values
 %%----------------------------------------------------------------------
 match() ->
