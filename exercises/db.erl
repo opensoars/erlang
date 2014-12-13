@@ -24,7 +24,7 @@
 
 %%----------------------------------------------------------------------
 %% API function new
-%% Returns an empty list which serves as a new database
+%% Returns an empty list which serves as a new db
 %%----------------------------------------------------------------------
 new() ->
   [].
@@ -43,7 +43,7 @@ destroy(_Db) ->
 
 %%----------------------------------------------------------------------
 %% API function write
-%% Adds key value tuples to specified database list
+%% Appends key value tuple to specified db list
 %%----------------------------------------------------------------------
 write(Key, Element, Db) ->
   [{Key, Element} | Db].
@@ -51,7 +51,7 @@ write(Key, Element, Db) ->
 
 %%----------------------------------------------------------------------
 %% API function delete
-%% Deletes a key value tuple from specified database list by searching
+%% Deletes a key value tuple from specified db list by searching
 %% for a tuple that matches the the specified key
 %%----------------------------------------------------------------------
 delete(Key, Db) ->
@@ -59,7 +59,7 @@ delete(Key, Db) ->
 
 %%----------------------------------------------------------------------
 %% API function read
-%% Returns a value from a key value tuple in specified database list
+%% Returns a value from a key value tuple in specified db list
 %% by searching for keys
 %%----------------------------------------------------------------------
 read(Key, Db) ->
@@ -68,7 +68,7 @@ read(Key, Db) ->
 
 %%----------------------------------------------------------------------
 %% API function match
-%% Returns a key from a key value tuple in specified database list
+%% Returns a key from a key value tuple in specified db list
 %% by searching for values
 %%----------------------------------------------------------------------
 match(Element, Db) ->
