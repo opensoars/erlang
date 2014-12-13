@@ -54,7 +54,7 @@ delete() ->
 
 %%----------------------------------------------------------------------
 %% API function read
-%%
+%% Returns a value from a key value tuple in specified database list
 %%----------------------------------------------------------------------
 read() ->
 
