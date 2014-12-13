@@ -34,7 +34,7 @@ new() ->
 %% API function destroy
 %% Returns the atom ok, implemented for consistency
 %%----------------------------------------------------------------------
-destroy() ->
+destroy(_Db) ->
   ok.
 
 
@@ -42,7 +42,8 @@ destroy() ->
 %% API function write
 %% Adds key value tuples to specified database list
 %%----------------------------------------------------------------------
-write() ->
+write(Key, Element, Db) ->
+  [].
 
 
 %%----------------------------------------------------------------------
@@ -50,15 +51,16 @@ write() ->
 %% Deletes a key value tuple from specified database list by searching
 %% for a tuple that matches the the specified key
 %%----------------------------------------------------------------------
-delete() ->
-
+delete(Key, Db) ->
+  [].
 
 %%----------------------------------------------------------------------
 %% API function read
 %% Returns a value from a key value tuple in specified database list
 %% by searching for keys
 %%----------------------------------------------------------------------
-read() ->
+read(Key, Db) ->
+  [].
 
 
 %%----------------------------------------------------------------------
@@ -66,4 +68,5 @@ read() ->
 %% Returns a key from a key value tuple in specified database list
 %% by searching for values
 %%----------------------------------------------------------------------
-match() ->
+match(Element, Db) ->
+  [].
