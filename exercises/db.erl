@@ -46,14 +46,7 @@ destroy(_Db) ->
 %% Adds key value tuples to specified database list
 %%----------------------------------------------------------------------
 write(Key, Element, Db) ->
-  concat({Key, Element}, Db).
-
-concat(To_add, Add_to) ->
-  [Add_to | To_add].
-
-
-% To_add, [X_H | X_T]
-% {Key, Element}, Db
+  [{Key, Element} | Db].
 
 
 %%----------------------------------------------------------------------
