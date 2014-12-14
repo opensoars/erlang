@@ -54,6 +54,7 @@ write(Key, Element, Db) ->
 delete(Key, Db) ->
   [].
 
+
 %%----------------------------------------------------------------------
 %% API function read
 %% Returns a value from a key value tuple in specified db list
@@ -67,16 +68,16 @@ read(Key, [Db_h | Db_t]) ->
     {error, _Err_desc} -> read(Key, Db_t)
   end.
 
+%%----------------------------------------------------------------------
+%% Internal function checkTuple
+%% Example: 
+%% checkTuple(hello, {hello, world}) returns {ok, world}
+%% checkTuple(hello, {hey, world}) returns {error, not_found}
+%%----------------------------------------------------------------------
 checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
   {ok, Tuple_element};
 checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
   {error, not_found}.
-
-
-% read(Key, [Db_h | Db_t]) when Key == Db_h ->
-%   io:format("1 Key: ~w\n", [Key]),
-%   Db_h;
-
 
 
 %%----------------------------------------------------------------------
