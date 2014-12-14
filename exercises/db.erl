@@ -28,9 +28,9 @@
 %% checkTuple(hello, {hello, world}) returns {ok, world}
 %% checkTuple(hello, {hey, world}) returns {error, not_found}
 %%----------------------------------------------------------------------
-checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
+checkTuple(_Q_key, {_Tuple_key, Tuple_element}) when _Q_key == _Tuple_key ->
   {ok, Tuple_element};
-checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
+checkTuple(_Q_key, {_Tuple_key, _Tuple_element}) ->
   {error, not_found}.
 
 
@@ -63,7 +63,7 @@ write(Key, Element, Db) ->
 %% Deletes a key value tuple from specified db list by searching
 %% for a tuple that matches the the specified key
 %%----------------------------------------------------------------------
-delete(Key, Db) ->
+delete(_Key, _Db) ->
   [].
 
 
@@ -72,7 +72,7 @@ delete(Key, Db) ->
 %% Returns a value from a key value tuple in specified db list
 %% by searching for keys
 %%----------------------------------------------------------------------
-read(Key, []) -> {error, not_found};
+read(_Key, []) -> {error, not_found};
 read(Key, [Db_h | Db_t]) ->
   case checkTuple(Key, Db_h) of
     {ok, Tuple_element} -> {ok, Tuple_element};
