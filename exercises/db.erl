@@ -23,6 +23,18 @@
 
 
 %%----------------------------------------------------------------------
+%% Internal function checkTuple
+%% Example: 
+%% checkTuple(hello, {hello, world}) returns {ok, world}
+%% checkTuple(hello, {hey, world}) returns {error, not_found}
+%%----------------------------------------------------------------------
+checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
+  {ok, Tuple_element};
+checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
+  {error, not_found}.
+
+
+%%----------------------------------------------------------------------
 %% API function new
 %% Returns an empty list which serves as a new db
 %%----------------------------------------------------------------------
@@ -67,17 +79,6 @@ read(Key, [Db_h | Db_t]) ->
     {ok, Tuple_element} -> {ok, Tuple_element};
     {error, _Err_desc} -> read(Key, Db_t)
   end.
-
-%%----------------------------------------------------------------------
-%% Internal function checkTuple
-%% Example: 
-%% checkTuple(hello, {hello, world}) returns {ok, world}
-%% checkTuple(hello, {hey, world}) returns {error, not_found}
-%%----------------------------------------------------------------------
-checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
-  {ok, Tuple_element};
-checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
-  {error, not_found}.
 
 
 %%----------------------------------------------------------------------
