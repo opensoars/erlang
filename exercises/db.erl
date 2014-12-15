@@ -86,30 +86,17 @@ matchesKey(_Q_key, {_Tuple_key, _Tuple_elem}) ->
   {error, not_found}.
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%----------------------------------------------------------------------
 %% API function match
-%% Returns a key from a key value tuple in specified db list
+%% Returns key(s) from a key/element tuple in specified db list
 %% by searching for values
 %%----------------------------------------------------------------------
-match(_Key, []) -> {error, not_found};
-match(Elem, [Db_h | Db_t]) ->
-  case matchesElem(Elem, Db_h) of
-    {ok, Tuple_key} -> {ok, Tuple_key};
-    {error, _Err_desc} -> match(Elem, Db_t)
+match(Search, Db) ->
+  match_acc(Search, Db, []).
+
+match_acc(_Search, [], Matches) -> Matches;
+match_acc(Search, [Db_h | Db_t], Matches) ->
+  case Db_h of
+    {Key, Search} -> match_acc(Search, Db_t, [Key | Matches]);
+    {_, _} -> match_acc(Search, Db_t, Matches)
   end.
-
-%%----------------------------------------------------------------------
-%% Internal function matchesElem
-%% Example: 
-%% matchesKey(world, {hello, world}) returns {ok, hello}
-%% matchesKey(hello, {hey, murica}) returns {error, not_found}
-%%----------------------------------------------------------------------
-matchesElem(_Q_elem, {Tuple_key, _Tuple_elem}) when _Q_elem == _Tuple_elem ->
-  {ok, Tuple_key};
-matchesElem(_Q_elem, {_Tuple_key, _Tuple_elem}) ->
-  {error, not_found}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
