@@ -7,10 +7,10 @@
 %%%
 %%% db:new()
 %%% db:destroy(Db)
-%%% db.write(Key, Element, Db)
+%%% db.write(Key, Elem, Db)
 %%% db.delete(Key, Db)
 %%% db.read(Key, Db)
-%%% db.match(Element, Db)
+%%% db.match(Elem, Db)
 %%%
 %%%--------------------------------------------------------------------- 
 %%% Exports
@@ -20,18 +20,6 @@
 %%%---------------------------------------------------------------------
 -module(db).
 -export([new/0, destroy/1, write/3, delete/2, read/2, match/2]).
-
-
-%%----------------------------------------------------------------------
-%% Internal function checkTuple
-%% Example: 
-%% checkTuple(hello, {hello, world}) returns {ok, world}
-%% checkTuple(hello, {hey, world}) returns {error, not_found}
-%%----------------------------------------------------------------------
-checkTuple(_Q_key, {_Tuple_key, Tuple_element}) when _Q_key == _Tuple_key ->
-  {ok, Tuple_element};
-checkTuple(_Q_key, {_Tuple_key, _Tuple_element}) ->
-  {error, not_found}.
 
 
 %%----------------------------------------------------------------------
@@ -54,8 +42,8 @@ destroy(_Db) ->
 %% API function write
 %% Appends key value tuple to specified db list
 %%----------------------------------------------------------------------
-write(Key, Element, Db) ->
-  [{Key, Element} | Db].
+write(Key, Elem, Db) ->
+  [{Key, Elem} | Db].
 
 
 %%----------------------------------------------------------------------
@@ -63,8 +51,15 @@ write(Key, Element, Db) ->
 %% Deletes a key value tuple from specified db list by searching
 %% for a tuple that matches the the specified key
 %%----------------------------------------------------------------------
-delete(_Key, _Db) ->
-  [].
+delete(Key, Db) ->
+  delete_acc(Key, Db, []).
+
+delete_acc(_Key, [], New) -> New;
+delete_acc(Key, [Db_h | Db_t], New) ->
+  case Db_h of
+    {Key, _} -> delete_acc(Key, Db_t, New);
+    {_, _} -> delete_acc(Key, Db_t, [Db_h | New])
+  end.
 
 
 %%----------------------------------------------------------------------
@@ -74,16 +69,47 @@ delete(_Key, _Db) ->
 %%----------------------------------------------------------------------
 read(_Key, []) -> {error, not_found};
 read(Key, [Db_h | Db_t]) ->
-  case checkTuple(Key, Db_h) of
-    {ok, Tuple_element} -> {ok, Tuple_element};
+  case matchesKey(Key, Db_h) of
+    {ok, Tuple_elem} -> {ok, Tuple_elem};
     {error, _Err_desc} -> read(Key, Db_t)
   end.
 
+%%----------------------------------------------------------------------
+%% Internal function matchesKey
+%% Example: 
+%% matchesKey(hello, {hello, world}) returns {ok, world}
+%% matchesKey(hello, {hey, world}) returns {error, not_found}
+%%----------------------------------------------------------------------
+matchesKey(_Q_key, {_Tuple_key, Tuple_elem}) when _Q_key == _Tuple_key ->
+  {ok, Tuple_elem};
+matchesKey(_Q_key, {_Tuple_key, _Tuple_elem}) ->
+  {error, not_found}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%----------------------------------------------------------------------
 %% API function match
 %% Returns a key from a key value tuple in specified db list
 %% by searching for values
 %%----------------------------------------------------------------------
-match(Element, Db) ->
-  [].
+match(_Key, []) -> {error, not_found};
+match(Elem, [Db_h | Db_t]) ->
+  case matchesElem(Elem, Db_h) of
+    {ok, Tuple_key} -> {ok, Tuple_key};
+    {error, _Err_desc} -> match(Elem, Db_t)
+  end.
+
+%%----------------------------------------------------------------------
+%% Internal function matchesElem
+%% Example: 
+%% matchesKey(world, {hello, world}) returns {ok, hello}
+%% matchesKey(hello, {hey, murica}) returns {error, not_found}
+%%----------------------------------------------------------------------
+matchesElem(_Q_elem, {Tuple_key, _Tuple_elem}) when _Q_elem == _Tuple_elem ->
+  {ok, Tuple_key};
+matchesElem(_Q_elem, {_Tuple_key, _Tuple_elem}) ->
+  {error, not_found}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
