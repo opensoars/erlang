@@ -64,8 +64,8 @@ read(Key, []) ->
 
 read(Key, [Db_h | Db_t]) ->
   case checkTuple(Key, Db_h) of
-    {ok, Tuple_element} -> Tuple_element;
-    {error, Err_desc} -> Err_desc
+    {ok, Tuple_element} -> {ok, Tuple_element};
+    {error, Err_desc} -> {error, Err_desc}
   end.
 
 
