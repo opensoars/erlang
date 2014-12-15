@@ -38,9 +38,6 @@ destroy(_Db) ->
   ok.
 
 
-
-
-
 %%----------------------------------------------------------------------
 %% API function write
 %% Appends key value tuple to specified db list
@@ -62,8 +59,28 @@ delete(Key, Db) ->
 %% Returns a value from a key value tuple in specified db list
 %% by searching for keys
 %%----------------------------------------------------------------------
-read(Key, Db) ->
-  [].
+read(Key, []) ->
+  empty;
+
+read(Key, [Db_h | Db_t]) ->
+  case checkTuple(Key, Db_h) of
+    {ok, Tuple_element} -> Tuple_element;
+    {error, Err_desc} -> Err_desc
+  end.
+
+
+checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
+  {ok, Tuple_element};
+checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
+  {error, not_found}.
+
+  
+
+
+% read(Key, [Db_h | Db_t]) when Key == Db_h ->
+%   io:format("1 Key: ~w\n", [Key]),
+%   Db_h;
+
 
 
 %%----------------------------------------------------------------------
