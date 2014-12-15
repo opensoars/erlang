@@ -59,22 +59,18 @@ delete(Key, Db) ->
 %% Returns a value from a key value tuple in specified db list
 %% by searching for keys
 %%----------------------------------------------------------------------
-read(Key, []) ->
-  empty;
+read(Key, []) -> {error, not_found}.
 
 read(Key, [Db_h | Db_t]) ->
   case checkTuple(Key, Db_h) of
     {ok, Tuple_element} -> {ok, Tuple_element};
-    {error, Err_desc} -> {error, Err_desc}
+    {error, _Err_desc} -> read(Key, Db_t)
   end.
-
 
 checkTuple(Q_key, {Tuple_key, Tuple_element}) when Q_key == Tuple_key ->
   {ok, Tuple_element};
 checkTuple(Q_key, {Tuple_key, Tuple_element}) ->
   {error, not_found}.
-
-  
 
 
 % read(Key, [Db_h | Db_t]) when Key == Db_h ->
