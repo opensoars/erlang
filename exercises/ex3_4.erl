@@ -1,22 +1,32 @@
 %%%--------------------------------------------------------------------- 
-%%% Description module db (ex3_4)
+%%% Description module ex3_4 (db)
 %%%--------------------------------------------------------------------- 
 %%% Database handling using lists
 %%%
 %%% API
 %%%
-%%% db:new()
-%%% db:destroy(Db)
-%%% db.write(Key, Elem, Db)
-%%% db.delete(Key, Db)
-%%% db.read(Key, Db)
-%%% db.match(Elem, Db)
+%%% ex3_4:new()
+%%% ex3_4:destroy(Db)
+%%% ex3_4.write(Key, Elem, Db)
+%%% ex3_4.delete(Key, Db)
+%%% ex3_4.read(Key, Db)
+%%% ex3_4.match(Elem, Db)
 %%%
 %%%--------------------------------------------------------------------- 
 %%% Exports
 %%%--------------------------------------------------------------------- 
-%%% 
-%%% 
+%%% new()
+%%%   Returns an empty list which can serve as a database
+%%% destroy(Db_to_destroy)
+%%%   Returs atom 'ok', implemented for consistency
+%%% write(Key_to_write, Element_to_write, Db_to_write_to)
+%%%   Writes key element pair as a tuple in specified database
+%%% delete(Key_to_search, Db_to_delete_from)
+%%%   Deletes a key element tuple from specified database
+%%% read(Key, Db)
+%%%   Reads an element from key element tuple from specified database
+%%% match(Element_to_match, Db)
+%%%   Returns keys that match key element tuples from specified database
 %%%---------------------------------------------------------------------
 -module(db).
 -export([new/0, destroy/1, write/3, delete/2, read/2, match/2]).
@@ -62,7 +72,6 @@ delete_acc(Key, [Db_h | Db_t], New) ->
   end.
 
 
- 
 %%----------------------------------------------------------------------
 %% API function read
 %% Returns a value from a key value tuple in specified db list
@@ -76,31 +85,6 @@ read(Key, [Db_h | Db_t]) ->
     {Key, Value} -> read(Value);
     {_Key, _Value} -> read(Key, Db_t)
   end.
-
-
-
-%%----------------------------------------------------------------------
-%% API function read
-%% Returns a value from a key value tuple in specified db list
-%% by searching for keys
-%%----------------------------------------------------------------------
-% read(_Key, []) -> {error, not_found};
-% read(Key, [Db_h | Db_t]) ->
-%   case matchesKey(Key, Db_h) of
-%     {ok, Tuple_elem} -> {ok, Tuple_elem};
-%     {error, _Err_desc} -> read(Key, Db_t)
-%   end.
-% 
-%%----------------------------------------------------------------------
-%% Internal function matchesKey
-%% Example: 
-%% matchesKey(hello, {hello, world}) returns {ok, world}
-%% matchesKey(hello, {hey, world}) returns {error, not_found}
-%%----------------------------------------------------------------------
-% matchesKey(_Q_key, {_Tuple_key, Tuple_elem}) when _Q_key == _Tuple_key ->
-%   {ok, Tuple_elem};
-% matchesKey(_Q_key, {_Tuple_key, _Tuple_elem}) ->
-%   {error, not_found}.
 
 
 %%----------------------------------------------------------------------
