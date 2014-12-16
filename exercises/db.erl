@@ -68,13 +68,16 @@ delete_acc(Key, [Db_h | Db_t], New) ->
 %% Returns a value from a key value tuple in specified db list
 %% by searching for keys
 %%----------------------------------------------------------------------
-read(_Key, _Db, Value) -> Value;
-read(Key, Db) ->
-  
+read(Value) -> Value.
+
+read(Key, []) -> {error, not_found};
+read(Key, [Db_h | Db_t]) ->
+  case Db_h of
+    {Key, Value} -> read(Value);
+    {_Key, _Value} -> read(Key, Db_t)
+  end.
 
 
-
-  
 
 %%----------------------------------------------------------------------
 %% API function read
