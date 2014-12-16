@@ -28,7 +28,7 @@
 %%% match(Element_to_match, Db)
 %%%   Returns keys that match key element tuples from specified database
 %%%---------------------------------------------------------------------
--module(db).
+-module(ex3_4).
 -export([new/0, destroy/1, write/3, delete/2, read/2, match/2]).
 
 
