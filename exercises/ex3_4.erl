@@ -5,12 +5,12 @@
 %%%
 %%% API
 %%%
-%%% ex3_4:new()
-%%% ex3_4:destroy(Db)
-%%% ex3_4.write(Key, Elem, Db)
-%%% ex3_4.delete(Key, Db)
-%%% ex3_4.read(Key, Db)
-%%% ex3_4.match(Elem, Db)
+%%% new()
+%%% destroy(Db)
+%%% write(Key, Elem, Db)
+%%% delete(Key, Db)
+%%% read(Key, Db)
+%%% match(Elem, Db)
 %%%
 %%%--------------------------------------------------------------------- 
 %%% Exports
